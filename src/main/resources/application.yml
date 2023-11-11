@@ -1,0 +1,24 @@
+server:
+   port: 8080
+spring:
+      cloud:
+         gateway:
+            routes:
+            - id: login
+              uri: http://localhost:9000
+              predicates:
+              - Path=/usuarios/**
+globalcors:
+  cors-configurations:
+    '[/**]':
+      allowedOrigins: "https://docs.spring.io"
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS  # Agrega OPTIONS para manejar solicitudes preflight
+      allowedHeaders:
+        - "*"
+      allowCredentials: true
+              
